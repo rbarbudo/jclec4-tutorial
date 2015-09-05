@@ -1,0 +1,26 @@
+<code>
+	<terminal>
+		<name>+</name>
+		<code>tutorial.symreg.Add</code>
+	</terminal>
+	<terminal>
+		<name>-</name>
+		<code>tutorial.symreg.Sub</code>
+	</terminal>
+	<terminal>
+		<name>*</name>
+		<code>tutorial.symreg.Mul</code>
+	</terminal>
+		<terminal>
+		<name>sin</name>
+		<code>tutorial.symreg.Sin</code>
+	</terminal>
+		<terminal>
+		<name>cos</name>
+		<code>tutorial.symreg.Cos</code>
+	</terminal>
+	<terminal>
+		<name>x</name>
+		<code>tutorial.symreg.X</code>
+	</terminal>
+</code>
