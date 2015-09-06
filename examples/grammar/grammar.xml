@@ -50,14 +50,14 @@
 			</production-rule>
 		</symbol>
 		<symbol>
-			<name>polinomio</name>
+			<name>monomio</name>
 			<production-rule>
 				<element>sin</element>
 				<element>polinomio</element>
 			</production-rule>
 		</symbol>
 		<symbol>
-			<name>polinomio</name>
+			<name>monomio</name>
 			<production-rule>
 				<element>cos</element>
 				<element>polinomio</element>
