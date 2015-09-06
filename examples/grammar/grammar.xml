@@ -43,13 +43,26 @@
 				<element>polinomio</element>
 			</production-rule>
 		</symbol>
-		
 		<symbol>
 			<name>polinomio</name>
 			<production-rule>
 				<element>monomio</element>
 			</production-rule>
 		</symbol>
+		<symbol>
+			<name>polinomio</name>
+			<production-rule>
+				<element>sin</element>
+				<element>polinomio</element>
+			</production-rule>
+		</symbol>
+		<symbol>
+			<name>polinomio</name>
+			<production-rule>
+				<element>cos</element>
+				<element>polinomio</element>
+			</production-rule>
+		</symbol>		
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
@@ -61,34 +74,6 @@
 			<production-rule>
 				<element>*</element>
 				<element>x</element>
-				<element>monomio</element>
-			</production-rule>
-		</symbol>
-		<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>sin</element>
-				<element>polinomio</element>
-			</production-rule>
-		</symbol>
-		<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>cos</element>
-				<element>polinomio</element>
-			</production-rule>
-		</symbol>
-				<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>sin</element>
-				<element>monomio</element>
-			</production-rule>
-		</symbol>
-		<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>cos</element>
 				<element>monomio</element>
 			</production-rule>
 		</symbol>
