@@ -25,6 +25,10 @@
 			<name>x</name>
 			<code>symreg.X</code>
 		</symbol>
+		<symbol>
+			<name>cte</name>
+			<code>symreg.Const</code>
+		</symbol>
 	</terminal-symbols>
 	<non-terminal-symbols>
 		<symbol>
@@ -68,12 +72,26 @@
 			<production-rule>
 				<element>x</element>
 			</production-rule>
+		</symbol>
+		<symbol>
+			<name>monomio</name>
+			<production-rule>
+				<element>cte</element>
+			</production-rule>
 		</symbol>		
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
 				<element>*</element>
 				<element>x</element>
+				<element>monomio</element>
+			</production-rule>
+		</symbol>
+		<symbol>
+			<name>monomio</name>
+			<production-rule>
+				<element>*</element>
+				<element>cte</element>
 				<element>monomio</element>
 			</production-rule>
 		</symbol>
