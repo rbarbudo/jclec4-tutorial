@@ -24,19 +24,7 @@
 		<code>tutorial.symreg.X</code>
 	</terminal>
 	<terminal>
-		<name>cte1</name>
-		<code>tutorial.symreg.Const1</code>
-	</terminal>
-	<terminal>
-		<name>cte2</name>
-		<code>tutorial.symreg.Const2</code>
-	</terminal>
-	<terminal>
-		<name>cte3</name>
-		<code>tutorial.symreg.Const3</code>
-	</terminal>
-	<terminal>
-		<name>cte4</name>
-		<code>tutorial.symreg.Const4</code>
+		<name>cte</name>
+		<code>tutorial.symreg.Constant</code>
 	</terminal>
 </code>

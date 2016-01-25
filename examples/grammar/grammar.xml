@@ -20,16 +20,7 @@
 			<name>x</name>
 		</symbol>
 		<symbol>
-			<name>cte1</name>
-		</symbol>
-		<symbol>
-			<name>cte2</name>
-		</symbol>
-		<symbol>
-			<name>cte3</name>
-		</symbol>
-		<symbol>
-			<name>cte4</name>
+			<name>cte</name>
 		</symbol>
 	</terminal-symbols>
 	<non-terminal-symbols>
@@ -91,30 +82,6 @@
 				<element>*</element>
 				<element>x</element>
 				<element>monomio</element>
-			</production-rule>
-		</symbol>
-		<symbol>
-			<name>cte</name>
-			<production-rule>
-				<element>cte1</element>
-			</production-rule>
-		</symbol>
-		<symbol>
-			<name>cte</name>
-			<production-rule>
-				<element>cte2</element>
-			</production-rule>
-		</symbol>
-		<symbol>
-			<name>cte</name>
-			<production-rule>
-				<element>cte3</element>
-			</production-rule>
-		</symbol>
-		<symbol>
-			<name>cte</name>
-			<production-rule>
-				<element>cte4</element>
 			</production-rule>
 		</symbol>
 	</non-terminal-symbols>

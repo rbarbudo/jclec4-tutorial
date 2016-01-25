@@ -133,13 +133,6 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 			double rms = 0.0;
 			
 			for (int i=0; i<xvalues.size(); i++) {
-				if(((GEIndividual)ind).getConstants()!=null)
-					y = function.<Double>execute(xvalues.get(i),
-							((GEIndividual) ind).getConstants()[0],
-							((GEIndividual) ind).getConstants()[1],
-							((GEIndividual) ind).getConstants()[2],
-							((GEIndividual) ind).getConstants()[3]);
-				else
 					y = function.<Double>execute(xvalues.get(i));
 				double diff = y - yvalues.get(i);
 				rms += diff * diff;
