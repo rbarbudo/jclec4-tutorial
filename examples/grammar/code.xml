@@ -11,16 +11,32 @@
 		<name>*</name>
 		<code>tutorial.symreg.Mul</code>
 	</terminal>
-		<terminal>
+	<terminal>
 		<name>sin</name>
 		<code>tutorial.symreg.Sin</code>
 	</terminal>
-		<terminal>
+	<terminal>
 		<name>cos</name>
 		<code>tutorial.symreg.Cos</code>
 	</terminal>
 	<terminal>
 		<name>x</name>
 		<code>tutorial.symreg.X</code>
+	</terminal>
+	<terminal>
+		<name>cte1</name>
+		<code>tutorial.symreg.Const1</code>
+	</terminal>
+	<terminal>
+		<name>cte2</name>
+		<code>tutorial.symreg.Const2</code>
+	</terminal>
+	<terminal>
+		<name>cte3</name>
+		<code>tutorial.symreg.Const3</code>
+	</terminal>
+	<terminal>
+		<name>cte4</name>
+		<code>tutorial.symreg.Const4</code>
 	</terminal>
 </code>

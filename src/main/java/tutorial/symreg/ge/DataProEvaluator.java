@@ -114,12 +114,11 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 		}
 		
 		setMaximize(false);
-
 	}
 
 	@Override
 	protected void evaluate(IIndividual ind) 
-	{		
+	{			
 		// Firstly, we must check if the individual is valid
 		if(((GEIndividual)ind).isFeasible())
 		{
@@ -132,9 +131,16 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 			double y; 
 			// Pass all
 			double rms = 0.0;
-			// xvalues.length == yvalues.length
+			
 			for (int i=0; i<xvalues.size(); i++) {
-				y = function.<Double>execute(xvalues.get(i));
+				if(((GEIndividual)ind).getConstants()!=null)
+					y = function.<Double>execute(xvalues.get(i),
+							((GEIndividual) ind).getConstants()[0],
+							((GEIndividual) ind).getConstants()[1],
+							((GEIndividual) ind).getConstants()[2],
+							((GEIndividual) ind).getConstants()[3]);
+				else
+					y = function.<Double>execute(xvalues.get(i));
 				double diff = y - yvalues.get(i);
 				rms += diff * diff;
 			}

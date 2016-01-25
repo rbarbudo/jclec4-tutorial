@@ -3,31 +3,33 @@
 	<terminal-symbols>
 		<symbol>
 			<name>+</name>
-			<code>symreg.Add</code>
 		</symbol>		
 		<symbol>		
 			<name>-</name>
-			<code>symreg.Sub</code>
 		</symbol>
 		<symbol>
 			<name>*</name>
-			<code>symreg.Mul</code>
 		</symbol>	
 		<symbol>
 			<name>sin</name>
-			<code>symreg.Sin</code>
 		</symbol>		
 		<symbol>
 			<name>cos</name>
-			<code>symreg.Cos</code>
 		</symbol>		
 		<symbol>
 			<name>x</name>
-			<code>symreg.X</code>
 		</symbol>
 		<symbol>
-			<name>cte</name>
-			<code>symreg.Const</code>
+			<name>cte1</name>
+		</symbol>
+		<symbol>
+			<name>cte2</name>
+		</symbol>
+		<symbol>
+			<name>cte3</name>
+		</symbol>
+		<symbol>
+			<name>cte4</name>
 		</symbol>
 	</terminal-symbols>
 	<non-terminal-symbols>
@@ -53,6 +55,7 @@
 				<element>monomio</element>
 			</production-rule>
 		</symbol>
+<!--
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
@@ -66,7 +69,8 @@
 				<element>cos</element>
 				<element>polinomio</element>
 			</production-rule>
-		</symbol>		
+		</symbol>
+-->		
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
@@ -76,7 +80,9 @@
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
+				<element>*</element>
 				<element>cte</element>
+				<element>monomio</element>
 			</production-rule>
 		</symbol>		
 		<symbol>
@@ -88,11 +94,27 @@
 			</production-rule>
 		</symbol>
 		<symbol>
-			<name>monomio</name>
+			<name>cte</name>
 			<production-rule>
-				<element>*</element>
-				<element>cte</element>
-				<element>monomio</element>
+				<element>cte1</element>
+			</production-rule>
+		</symbol>
+		<symbol>
+			<name>cte</name>
+			<production-rule>
+				<element>cte2</element>
+			</production-rule>
+		</symbol>
+		<symbol>
+			<name>cte</name>
+			<production-rule>
+				<element>cte3</element>
+			</production-rule>
+		</symbol>
+		<symbol>
+			<name>cte</name>
+			<production-rule>
+				<element>cte4</element>
 			</production-rule>
 		</symbol>
 	</non-terminal-symbols>
