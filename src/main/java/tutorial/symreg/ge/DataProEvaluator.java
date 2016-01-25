@@ -123,7 +123,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 		if(((GEIndividual)ind).isFeasible())
 		{
 			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());	
-			//System.out.println(ind_expr);
+			System.out.print(ind_expr + " -> fitness:");
 			
 			// Set function code
 			function.setCode(ind_expr);
@@ -146,6 +146,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 			}
 			rms = Math.sqrt(rms);
 			// Set rms as fitness for ind
+			System.out.println(rms);
 			ind.setFitness(new SimpleValueFitness(rms));
 		}
 		// If the individual is not valid, we assign a bad fitness
