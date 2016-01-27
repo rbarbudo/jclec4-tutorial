@@ -25,6 +25,6 @@
 	</terminal>
 	<terminal>
 		<name>cte</name>
-		<code>tutorial.symreg.Constant</code>
+		<code>net.sf.jclec.exprtree.Constant</code>
 	</terminal>
 </code>

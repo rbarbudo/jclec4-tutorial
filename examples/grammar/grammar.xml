@@ -46,7 +46,7 @@
 				<element>monomio</element>
 			</production-rule>
 		</symbol>
-<!--
+
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
@@ -61,7 +61,7 @@
 				<element>polinomio</element>
 			</production-rule>
 		</symbol>
--->		
+	
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
