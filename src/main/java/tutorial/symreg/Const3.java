@@ -1,14 +1,13 @@
-/**
- * 
- */
 package tutorial.symreg;
 
 import net.sf.jclec.exprtree.fun.Argument;
 
 /**
+ * Represents one the constant of the constant pull
+ * 
  * @author Rafael Barbudo Lunar
- *
  */
+
 public class Const3 extends Argument<Double> 
 {
 	//////////////////////////////////////////////////////////////////////
@@ -31,6 +30,8 @@ public class Const3 extends Argument<Double>
 		super(Double.class, 3);
 	}	
 
+	// java.lang.Object methods	
+	
 	public boolean equals(int argindex)
 	{
 		return this.argindex == argindex;
@@ -39,6 +40,5 @@ public class Const3 extends Argument<Double>
 	public String toString()
 	{
 		return "C3";
-	}
-	
+	}	
 }

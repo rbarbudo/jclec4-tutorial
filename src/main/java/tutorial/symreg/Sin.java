@@ -3,10 +3,6 @@ package tutorial.symreg;
 import net.sf.jclec.exprtree.fun.AbstractPrimitive;
 import net.sf.jclec.exprtree.fun.ExprTreeFunction;
 
-/**
- * @author Rafael Barbudo Lunar
- *
- */
 public class Sin extends AbstractPrimitive 
 {
 	private static final long serialVersionUID = -2234209831796929654L;
