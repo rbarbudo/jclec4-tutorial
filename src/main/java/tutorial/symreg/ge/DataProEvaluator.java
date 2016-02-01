@@ -123,7 +123,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 		if(((GEIndividual)ind).isFeasible())
 		{
 			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());	
-			System.out.println(ind_expr);
+			//System.out.println(ind_expr);
 			
 			// Set function code
 			function.setCode(ind_expr);
