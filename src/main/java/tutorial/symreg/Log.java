@@ -3,18 +3,22 @@ package tutorial.symreg;
 import net.sf.jclec.exprtree.fun.AbstractPrimitive;
 import net.sf.jclec.exprtree.fun.ExprTreeFunction;
 
-public class Add extends AbstractPrimitive 
+/**
+ * @author Rafael Barbudo Lunar
+ *
+ */
+public class Log extends AbstractPrimitive 
 {
-	private static final long serialVersionUID = 8279083725033255980L;
+	private static final long serialVersionUID = 4361377041058015617L;
 
 	/**
-	 * This operator receives two double arrays as arguments and return
-	 * a double array as result.
+	 * This operator receives on double array as argument and return
+	 * another double array as result.
 	 */
 	
-	public Add() 
+	public Log() 
 	{
-		super(new Class<?> [] {Double.class, Double.class}, Double.class);
+		super(new Class<?> [] {Double.class}, Double.class);
 	}
 
 	@Override
@@ -22,21 +26,19 @@ public class Add extends AbstractPrimitive
 	{
 		// Get arguments (in context stack)
 		Double arg1 = pop(context);
-		Double arg2 = pop(context);
-
 		// Push result in context stack
-		push(context, arg1+arg2);
+		push(context, Math.log(arg1));
 	}
 
 	// java.lang.Object methods
 	
 	public boolean equals(Object other)
 	{
-		return other instanceof Add;
+		return other instanceof Log;
 	}	
 	
 	public String toString()
 	{
-		return "+";
+		return "Log";
 	}	
 }

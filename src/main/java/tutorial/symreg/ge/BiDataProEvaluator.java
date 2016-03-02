@@ -19,7 +19,7 @@ import es.uco.kdis.datapro.dataset.source.ExcelDataset;
 import es.uco.kdis.datapro.exception.IllegalFormatSpecificationException;
 import es.uco.kdis.datapro.exception.NotAddedValueException;
 
-public class DataProEvaluator extends AbstractEvaluator implements IConfigure
+public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 {
 	//////////////////////////////////////////////////////////////////////
 	// -------------------------------------------- Serialization constant
@@ -43,6 +43,8 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	
 	private static ArrayList <Double> yvalues = new ArrayList<Double>();
 	
+	private static ArrayList <Double> results = new ArrayList<Double>();
+	
 	/** Auxiliary function */
 	
 	ExprTreeFunction function = new ExprTreeFunction();
@@ -51,7 +53,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	// ------------------------------------------------------ Constructors
 	//////////////////////////////////////////////////////////////////////
 	
-	public DataProEvaluator()
+	public BiDataProEvaluator()
 	{
 		super();
 	}
@@ -90,16 +92,18 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	public void configure(Configuration settings) 
 	{
 		String dataFile = settings.getString("data-file");
+		System.out.println(dataFile);
 		ExcelDataset dataset = new ExcelDataset(dataFile);
 		dataset.setName("'My ExcelDataset'");
 		try {
-			dataset.readDataset("n%v", "%f%f");
+			dataset.readDataset("n%v", "%ff%f");
 
 			//Show the dataset
 			InstanceIterator it = new InstanceIterator(dataset);
 			do {
 				xvalues.add((double) it.currentInstance().get(0));
 				yvalues.add((double) it.currentInstance().get(1));
+				results.add((double) it.currentInstance().get(2));
 				it.next();
 			} while (!it.isDone());			
 			
@@ -123,7 +127,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 		if(((GEIndividual)ind).isFeasible())
 		{
 			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());	
-			System.out.println(ind_expr);
+			//System.out.println(ind_expr);
 			
 			// Set function code
 			function.setCode(ind_expr);
@@ -133,8 +137,8 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 			double rms = 0.0;
 			
 			for (int i=0; i<xvalues.size(); i++) {
-					y = function.<Double>execute(xvalues.get(i));
-				double diff = y - yvalues.get(i);
+					y = function.<Double>execute(xvalues.get(i),yvalues.get(i));
+				double diff = y - results.get(i);
 				rms += diff * diff;
 			}
 			rms = Math.sqrt(rms);

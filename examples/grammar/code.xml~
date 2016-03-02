@@ -35,10 +35,8 @@
 		<name>pcte</name>
 		<code>tutorial.symreg.PseudoConst</code>
 	</terminal>
-<!--
 	<terminal>
 		<name>cte</name>
 		<code>net.sf.jclec.exprtree.Constant</code>
 	</terminal>
--->
 </code>
