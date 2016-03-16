@@ -7,16 +7,16 @@ import net.sf.jclec.exprtree.fun.ExprTreeFunction;
  * @author Rafael Barbudo Lunar
  *
  */
-public class Exp extends AbstractPrimitive 
+public class Tan extends AbstractPrimitive 
 {
-	private static final long serialVersionUID = 4361377041058015617L;
+	private static final long serialVersionUID = -2234209831796929654L;
 
 	/**
 	 * This operator receives on double array as argument and return
 	 * another double array as result.
 	 */
 	
-	public Exp() 
+	public Tan() 
 	{
 		super(new Class<?> [] {Double.class}, Double.class);
 	}
@@ -27,18 +27,18 @@ public class Exp extends AbstractPrimitive
 		// Get arguments (in context stack)
 		Double arg1 = pop(context);
 		// Push result in context stack
-		push(context, Math.exp(arg1));
+		push(context, Math.tan(arg1));
 	}
 
 	// java.lang.Object methods
 	
 	public boolean equals(Object other)
 	{
-		return other instanceof Exp;
+		return other instanceof Tan;
 	}	
 	
 	public String toString()
 	{
-		return "Exp";
+		return "Tan";
 	}	
 }

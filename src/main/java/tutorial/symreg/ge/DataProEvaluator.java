@@ -123,7 +123,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 		if(((GEIndividual)ind).isFeasible())
 		{
 			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());	
-			System.out.println(ind_expr);
+			//System.out.println(ind_expr);
 			
 			// Set function code
 			function.setCode(ind_expr);
@@ -134,10 +134,17 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 			
 			for (int i=0; i<xvalues.size(); i++) {
 					y = function.<Double>execute(xvalues.get(i));
+					
+					//System.out.println(ind_expr);
+					//System.out.println("x:"+xvalues.get(i));
+					//System.out.println("y:"+y);
+					
+					
 				double diff = y - yvalues.get(i);
 				rms += diff * diff;
 			}
 			rms = Math.sqrt(rms);
+
 			// Set rms as fitness for ind
 			ind.setFitness(new SimpleValueFitness(rms));
 		}

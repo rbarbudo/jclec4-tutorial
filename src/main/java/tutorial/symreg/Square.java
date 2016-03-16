@@ -7,7 +7,7 @@ import net.sf.jclec.exprtree.fun.ExprTreeFunction;
  * @author Rafael Barbudo Lunar
  *
  */
-public class Exp extends AbstractPrimitive 
+public class Square extends AbstractPrimitive 
 {
 	private static final long serialVersionUID = 4361377041058015617L;
 
@@ -16,7 +16,7 @@ public class Exp extends AbstractPrimitive
 	 * another double array as result.
 	 */
 	
-	public Exp() 
+	public Square() 
 	{
 		super(new Class<?> [] {Double.class}, Double.class);
 	}
@@ -27,18 +27,18 @@ public class Exp extends AbstractPrimitive
 		// Get arguments (in context stack)
 		Double arg1 = pop(context);
 		// Push result in context stack
-		push(context, Math.exp(arg1));
+		push(context, Math.pow(arg1,3));
 	}
 
 	// java.lang.Object methods
 	
 	public boolean equals(Object other)
 	{
-		return other instanceof Exp;
+		return other instanceof Square;
 	}	
 	
 	public String toString()
 	{
-		return "Exp";
+		return "Cube";
 	}	
 }
