@@ -19,9 +19,13 @@
 		<symbol>
 			<name>x</name>
 		</symbol>
-<!--
+
 		<symbol>
 			<name>cte</name>
+		</symbol>
+<!--		
+		<symbol>
+			<name>pcte</name>
 		</symbol>
 -->
 		<symbol>
@@ -30,9 +34,7 @@
 		<symbol>
 			<name>log</name>
 		</symbol>
-		<symbol>
-			<name>pcte</name>
-		</symbol>
+
 	</terminal-symbols>
 	<non-terminal-symbols>
 		<symbol>
@@ -79,6 +81,7 @@
 				<element>x</element>
 			</production-rule>
 		</symbol>
+<!--		
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
@@ -96,8 +99,7 @@
 				<element>pcte</element>
 			</production-rule>
 		</symbol>
-
-<!--	
+-->
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
@@ -106,7 +108,7 @@
 				<element>monomio</element>
 			</production-rule>
 		</symbol>
--->				
+			
 		<symbol>
 			<name>monomio</name>
 			<production-rule>

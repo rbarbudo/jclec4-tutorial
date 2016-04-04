@@ -44,11 +44,7 @@ public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 	private static ArrayList <Double> yvalues = new ArrayList<Double>();
 	
 	private static ArrayList <Double> results = new ArrayList<Double>();
-	
-	/** Auxiliary function */
-	
-	ExprTreeFunction function = new ExprTreeFunction();
-	
+			
 	//////////////////////////////////////////////////////////////////////
 	// ------------------------------------------------------ Constructors
 	//////////////////////////////////////////////////////////////////////
@@ -126,8 +122,8 @@ public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 		// Firstly, we must check if the individual is valid
 		if(((GEIndividual)ind).isFeasible())
 		{
-			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());	
-			//System.out.println(ind_expr);
+			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());
+			ExprTreeFunction function = new ExprTreeFunction(ind_expr);
 			
 			// Set function code
 			function.setCode(ind_expr);

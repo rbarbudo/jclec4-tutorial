@@ -1,44 +1,45 @@
 <code>
 	<terminal>
 		<name>+</name>
-		<code>tutorial.symreg.Add</code>
+		<code>net.sf.jclec.symreg.Add</code>
 	</terminal>
 	<terminal>
 		<name>-</name>
-		<code>tutorial.symreg.Sub</code>
+		<code>net.sf.jclec.symreg.Sub</code>
 	</terminal>
 	<terminal>
 		<name>*</name>
-		<code>tutorial.symreg.Mul</code>
+		<code>net.sf.jclec.symreg.Mul</code>
 	</terminal>
 	<terminal>
 		<name>sin</name>
-		<code>tutorial.symreg.Sin</code>
+		<code>net.sf.jclec.symreg.Sin</code>
 	</terminal>
 	<terminal>
 		<name>cos</name>
-		<code>tutorial.symreg.Cos</code>
+		<code>net.sf.jclec.symreg.Cos</code>
 	</terminal>
 	<terminal>
 		<name>x</name>
-		<code>tutorial.symreg.X</code>
+		<code>net.sf.jclec.symreg.X</code>
 	</terminal>
 	<terminal>
 		<name>exp</name>
-		<code>tutorial.symreg.Exp</code>
+		<code>net.sf.jclec.symreg.Exp</code>
 	</terminal>
 	<terminal>
 		<name>log</name>
-		<code>tutorial.symreg.Log</code>
-	</terminal>
-	<terminal>
-		<name>pcte</name>
-		<code>tutorial.symreg.PseudoConst</code>
+		<code>net.sf.jclec.symreg.Log</code>
 	</terminal>
 <!--
 	<terminal>
-		<name>cte</name>
-		<code>net.sf.jclec.exprtree.Constant</code>
+		<name>pcte</name>
+		<code>net.sf.jclec.symreg.PseudoCte</code>
 	</terminal>
 -->
+	<terminal>
+		<name>cte</name>
+		<code>net.sf.jclec.symreg.Cte</code>
+	</terminal>
+
 </code>

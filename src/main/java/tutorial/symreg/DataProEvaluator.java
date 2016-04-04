@@ -8,6 +8,8 @@ import org.apache.commons.configuration.Configuration;
 import net.sf.jclec.IConfigure;
 import net.sf.jclec.IFitness;
 import net.sf.jclec.IIndividual;
+import net.sf.jclec.ISystem;
+import net.sf.jclec.ITool;
 import net.sf.jclec.base.AbstractEvaluator;
 import net.sf.jclec.exprtree.ExprTree;
 import net.sf.jclec.exprtree.fun.ExprTreeFunction;
@@ -39,13 +41,11 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	
 	protected boolean maximize;
 	
+	/** X and Y values **/
+	
 	private static ArrayList <Double> xvalues = new ArrayList<Double>();
 	
-	private static ArrayList <Double> yvalues = new ArrayList<Double>();
-	
-	/** Auxiliary function */
-	
-	ExprTreeFunction function = new ExprTreeFunction();
+	private static ArrayList <Double> yvalues = new ArrayList<Double>();	
 	
 	//////////////////////////////////////////////////////////////////////
 	// ------------------------------------------------------ Constructors
@@ -61,15 +61,18 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	/////////////////////////////////////////////////////////////////
 	
 	/** Is this evaluator being used to maximize a function?
-	* @return true if evaluator is used to maximize function, false
-	otherwise. */
+	 * @return true if evaluator is used to maximize function, false otherwise. 
+	 **/
+	
 	public boolean isMaximize()
 	{
 		return maximize;
 	}
 	
 	/** Set the maximize flag.
-	* @param maximize Actual maximize flag. */
+	 * @param maximize Actual maximize flag. 
+	 **/
+	
 	public void setMaximize(boolean maximize)
 	{
 		this.maximize = maximize;
@@ -113,6 +116,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	{
 		// Individual phenotype
 		ExprTree ind_expr = ((SyntaxTreeIndividual) ind).getGenotype().getExprTree();
+		ExprTreeFunction function = new ExprTreeFunction(ind_expr);
 		
 		// Set function code
 		function.setCode(ind_expr);
@@ -140,5 +144,4 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 		// Return comparator
 		return COMPARATOR;
 	}
-	
 }
