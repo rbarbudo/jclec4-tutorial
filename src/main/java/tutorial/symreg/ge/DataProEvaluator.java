@@ -8,17 +8,12 @@ import org.apache.commons.configuration.Configuration;
 import net.sf.jclec.IConfigure;
 import net.sf.jclec.IFitness;
 import net.sf.jclec.IIndividual;
-import net.sf.jclec.ISystem;
-import net.sf.jclec.ITool;
-import net.sf.jclec.algorithm.PopulationAlgorithm;
 import net.sf.jclec.base.AbstractEvaluator;
 import net.sf.jclec.exprtree.ExprTree;
 import net.sf.jclec.exprtree.fun.ExprTreeFunction;
 import net.sf.jclec.fitness.SimpleValueFitness;
 import net.sf.jclec.fitness.ValueFitnessComparator;
 import net.sf.jclec.ge.GEIndividual;
-import net.sf.jclec.ge.GESchema;
-import net.sf.jclec.ge.GESpecies;
 import net.sf.jclec.util.random.IRandGen;
 import net.sf.jclec.util.range.IRange;
 import es.uco.kdis.datapro.dataset.InstanceIterator;
@@ -26,7 +21,7 @@ import es.uco.kdis.datapro.dataset.source.ExcelDataset;
 import es.uco.kdis.datapro.exception.IllegalFormatSpecificationException;
 import es.uco.kdis.datapro.exception.NotAddedValueException;
 
-public class DataProEvaluator extends AbstractEvaluator implements IConfigure, ITool
+public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 {
 	//////////////////////////////////////////////////////////////////////
 	// -------------------------------------------- Serialization constant
@@ -132,8 +127,8 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure, I
 		if(((GEIndividual)ind).isFeasible())
 		{
 			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());	
-			System.out.println(ind_expr);
-			ExprTreeFunction function = new ExprTreeFunction(ind_expr, randgen, range);
+			//System.out.println(ind_expr);
+			ExprTreeFunction function = new ExprTreeFunction(ind_expr);
 			
 			// Set function code
 			function.setCode(ind_expr);
@@ -161,6 +156,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure, I
 		// If the individual is not valid, we assign a bad fitness
 		else
 			ind.setFitness(new SimpleValueFitness(9999));
+
 	}
 	
 	@Override
@@ -172,14 +168,5 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure, I
 	
 		// Return comparator
 		return COMPARATOR;
-	}
-
-	@Override
-	public void contextualize(ISystem context) {
-		
-		GESchema schema = ((GESpecies)((PopulationAlgorithm)context).getSpecies()).getSchema();
-
-		range = schema.getConstantSchema();	
-		randgen = context.createRandGen();
 	}
 }
