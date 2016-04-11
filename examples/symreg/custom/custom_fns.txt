@@ -1,2 +1,5 @@
-1) f(x) = 2sen(X)
+1) f(x) = sin(2X)
 2) f(x) = 3x^3 + 2x^2
+3) f(x) = cos(x^2)+2sin(x)
+4) f(x,y) = 2sin(x)+cos(y)
+5) f(x,y) = x^3+y^2+xy

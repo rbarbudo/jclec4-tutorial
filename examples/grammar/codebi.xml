@@ -29,6 +29,11 @@
 		<name>x</name>
 		<code>net.sf.jclec.symreg.X</code>
 	</terminal>
+
+	<terminal>
+		<name>y</name>
+		<code>net.sf.jclec.symreg.Y</code>
+	</terminal>
 	
 	<terminal>
 		<name>exp</name>

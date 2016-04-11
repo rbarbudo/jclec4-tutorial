@@ -49,6 +49,8 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	
 	protected IRandGen randgen;
 	
+	/** Range used in constants **/
+	
 	protected IRange[] range;
 	
 	//////////////////////////////////////////////////////////////////////
@@ -138,13 +140,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 			double rms = 0.0;
 			
 			for (int i=0; i<xvalues.size(); i++) {
-					y = function.<Double>execute(xvalues.get(i));
-					
-					//System.out.println(ind_expr);
-					//System.out.println("x:"+xvalues.get(i));
-					//System.out.println("y:"+y);
-					
-					
+				y = function.<Double>execute(xvalues.get(i));			
 				double diff = y - yvalues.get(i);
 				rms += diff * diff;
 			}

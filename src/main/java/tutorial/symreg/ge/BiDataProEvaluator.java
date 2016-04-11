@@ -14,6 +14,8 @@ import net.sf.jclec.exprtree.fun.ExprTreeFunction;
 import net.sf.jclec.fitness.SimpleValueFitness;
 import net.sf.jclec.fitness.ValueFitnessComparator;
 import net.sf.jclec.ge.GEIndividual;
+import net.sf.jclec.util.random.IRandGen;
+import net.sf.jclec.util.range.IRange;
 import es.uco.kdis.datapro.dataset.InstanceIterator;
 import es.uco.kdis.datapro.dataset.source.ExcelDataset;
 import es.uco.kdis.datapro.exception.IllegalFormatSpecificationException;
@@ -45,6 +47,14 @@ public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 	
 	private static ArrayList <Double> results = new ArrayList<Double>();
 			
+	/** Random generator used in evaluation */
+	
+	protected IRandGen randgen;
+	
+	/** Range used in constants **/
+	
+	protected IRange[] range;
+	
 	//////////////////////////////////////////////////////////////////////
 	// ------------------------------------------------------ Constructors
 	//////////////////////////////////////////////////////////////////////
@@ -123,6 +133,7 @@ public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 		if(((GEIndividual)ind).isFeasible())
 		{
 			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());
+			//System.out.println(ind_expr);
 			ExprTreeFunction function = new ExprTreeFunction(ind_expr);
 			
 			// Set function code
@@ -133,11 +144,12 @@ public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 			double rms = 0.0;
 			
 			for (int i=0; i<xvalues.size(); i++) {
-					y = function.<Double>execute(xvalues.get(i),yvalues.get(i));
+				y = function.<Double>execute(xvalues.get(i),yvalues.get(i));
 				double diff = y - results.get(i);
 				rms += diff * diff;
 			}
 			rms = Math.sqrt(rms);
+			
 			// Set rms as fitness for ind
 			ind.setFitness(new SimpleValueFitness(rms));
 		}
