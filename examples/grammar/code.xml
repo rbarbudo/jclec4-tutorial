@@ -43,7 +43,7 @@
 	<terminal>
 		<name>cte</name>
 		<code>net.sf.jclec.symreg.Cte</code>
-		<constant-schema type="net.sf.jclec.util.range.Interval" left="-10" right="10" closure="open-open" />
+		<constant-schema type="net.sf.jclec.util.range.Interval" left="1" right="1" closure="open-open" />
 		<rand-gen-factory type="net.sf.jclec.util.random.RanecuFactory" seed="12351"/>
 	</terminal>
 

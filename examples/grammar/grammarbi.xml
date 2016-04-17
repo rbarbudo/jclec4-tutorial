@@ -27,6 +27,10 @@
 		</symbol>
 		
 		<symbol>
+			<name>y</name>
+		</symbol>
+		
+		<symbol>
 			<name>exp</name>
 		</symbol>
 		
@@ -92,7 +96,7 @@
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
-				<element>x</element>
+				<element>var</element>
 			</production-rule>
 		</symbol>
 					
@@ -100,8 +104,23 @@
 			<name>monomio</name>
 			<production-rule>
 				<element>*</element>
-				<element>x</element>
+				<element>var</element>
 				<element>monomio</element>
+			</production-rule>
+		</symbol>
+		
+		
+		<symbol>
+			<name>var</name>
+			<production-rule>
+				<element>x</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>var</name>
+			<production-rule>
+				<element>y</element>
 			</production-rule>
 		</symbol>
 		
