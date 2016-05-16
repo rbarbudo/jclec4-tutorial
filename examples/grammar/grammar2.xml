@@ -13,6 +13,10 @@
 		<symbol>
 			<name>*</name>
 		</symbol>
+
+		<symbol>
+			<name>/</name>
+		</symbol>
 			
 		<symbol>
 			<name>sin</name>
@@ -74,7 +78,7 @@
 				<element>var</element>
 			</production-rule>
 		</symbol>
-		
+
 		<symbol>
 			<name>expr</name>
 			<production-rule>
@@ -102,6 +106,13 @@
 				<element>*</element>
 			</production-rule>
 		</symbol>	
+
+		<symbol>
+			<name>op</name>
+			<production-rule>
+				<element>/</element>
+			</production-rule>
+		</symbol>
 		
 		<symbol>
 			<name>pre-op</name>
@@ -116,6 +127,20 @@
 				<element>cos</element>
 			</production-rule>
 		</symbol>						
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>log</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>exp</element>
+			</production-rule>
+		</symbol>
 
 		<symbol>
 			<name>var</name>

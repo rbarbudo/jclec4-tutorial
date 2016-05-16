@@ -21,7 +21,7 @@ import es.uco.kdis.datapro.dataset.source.ExcelDataset;
 import es.uco.kdis.datapro.exception.IllegalFormatSpecificationException;
 import es.uco.kdis.datapro.exception.NotAddedValueException;
 
-public class DataProEvaluator extends AbstractEvaluator implements IConfigure
+public class DataProEvaluatorSEP extends AbstractEvaluator implements IConfigure
 {
 	//////////////////////////////////////////////////////////////////////
 	// -------------------------------------------- Serialization constant
@@ -57,7 +57,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	// ------------------------------------------------------ Constructors
 	//////////////////////////////////////////////////////////////////////
 	
-	public DataProEvaluator()
+	public DataProEvaluatorSEP()
 	{
 		super();
 	}
@@ -145,9 +145,17 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 				rms += diff * diff;
 			}
 			rms = Math.sqrt(rms);
-
+			
+			double average = 0;
+			
+			for(int i=0; i<yvalues.size(); i++)
+				average += yvalues.get(i);
+			average = average/yvalues.size();
+			
+			//rms = (rms /(average));
+			
 			// Set rms as fitness for ind		
-			if(Double.isNaN(rms) || rms > Double.MAX_VALUE)
+			if(Double.isNaN(rms) || rms > Double.MAX_VALUE || Double.isInfinite(rms))
 				ind.setFitness(new SimpleValueFitness(Double.MAX_VALUE));
 			else
 				ind.setFitness(new SimpleValueFitness(rms));

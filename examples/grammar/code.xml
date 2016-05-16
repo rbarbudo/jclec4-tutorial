@@ -16,6 +16,11 @@
 	</terminal>
 	
 	<terminal>
+		<name>/</name>
+		<code>net.sf.jclec.symreg.Div</code>
+	</terminal>
+	
+	<terminal>
 		<name>sin</name>
 		<code>net.sf.jclec.symreg.Sin</code>
 	</terminal>
@@ -44,7 +49,7 @@
 		<name>cte</name>
 		<code>net.sf.jclec.symreg.Cte</code>
 		<constant-schema type="net.sf.jclec.util.range.Interval" left="1" right="1" closure="open-open" />
-		<rand-gen-factory type="net.sf.jclec.util.random.RanecuFactory" seed="12351"/>
+		<rand-gen-factory type="net.sf.jclec.util.random.RanecuFactory" seed="523234"/>
 	</terminal>
 
 </code>

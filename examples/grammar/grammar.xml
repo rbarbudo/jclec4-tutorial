@@ -13,6 +13,10 @@
 		<symbol>
 			<name>*</name>
 		</symbol>
+
+		<symbol>
+			<name>/</name>
+		</symbol>
 			
 		<symbol>
 			<name>sin</name>
@@ -85,6 +89,22 @@
 		<symbol>
 			<name>monomio</name>
 			<production-rule>
+				<element>log</element>
+				<element>polinomio</element>
+			</production-rule>
+		</symbol>
+		
+		<symbol>
+			<name>monomio</name>
+			<production-rule>
+				<element>exp</element>
+				<element>polinomio</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>monomio</name>
+			<production-rule>
 				<element>cte</element>
 			</production-rule>
 		</symbol>
@@ -102,6 +122,15 @@
 				<element>*</element>
 				<element>x</element>
 				<element>monomio</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>monomio</name>
+			<production-rule>
+				<element>/</element>
+				<element>monomio</element>
+				<element>x</element>
 			</production-rule>
 		</symbol>
 		
