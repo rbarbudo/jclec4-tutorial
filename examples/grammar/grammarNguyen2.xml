@@ -1,5 +1,5 @@
 <grammar>
-	<root-symbol>polinomio</root-symbol>
+	<root-symbol>expr</root-symbol>
 	<terminal-symbols>
 	
 		<symbol>
@@ -29,6 +29,10 @@
 		<symbol>
 			<name>x</name>
 		</symbol>
+
+		<symbol>
+			<name>x2</name>
+		</symbol>
 		
 		<symbol>
 			<name>exp</name>
@@ -38,101 +42,119 @@
 			<name>log</name>
 		</symbol>
 
-		<symbol>
-			<name>cte</name>
-		</symbol>
-
 	</terminal-symbols>
 	<non-terminal-symbols>
 	
 		<symbol>
-			<name>polinomio</name>
+			<name>expr</name>
+			<production-rule>
+				<element>op</element>
+				<element>expr</element>
+				<element>expr</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>expr</name>
+			<production-rule>
+				<element>pre-op</element>
+				<element>expr</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>expr</name>
+			<production-rule>
+				<element>op</element>
+				<element>var</element>
+				<element>var</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>expr</name>
+			<production-rule>
+				<element>pre-op</element>
+				<element>var</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>expr</name>
+			<production-rule>
+				<element>var</element>
+			</production-rule>
+		</symbol>			
+		
+		<symbol>
+			<name>op</name>
 			<production-rule>
 				<element>+</element>
-				<element>monomio</element>
-				<element>polinomio</element>
 			</production-rule>
 		</symbol>
-		
+
 		<symbol>
-			<name>polinomio</name>
+			<name>op</name>
 			<production-rule>
 				<element>-</element>
-				<element>monomio</element>
-				<element>polinomio</element>
 			</production-rule>
 		</symbol>
 		
 		<symbol>
-			<name>polinomio</name>
-			<production-rule>
-				<element>monomio</element>
-			</production-rule>
-		</symbol>
-
-		<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>sin</element>
-				<element>polinomio</element>
-			</production-rule>
-		</symbol>
-		
-		<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>cos</element>
-				<element>polinomio</element>
-			</production-rule>
-		</symbol>
-
-		<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>log</element>
-				<element>polinomio</element>
-			</production-rule>
-		</symbol>
-		
-		<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>exp</element>
-				<element>polinomio</element>
-			</production-rule>
-		</symbol>
-
-		<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>cte</element>
-			</production-rule>
-		</symbol>
-	
-		<symbol>
-			<name>monomio</name>
-			<production-rule>
-				<element>x</element>
-			</production-rule>
-		</symbol>
-					
-		<symbol>
-			<name>monomio</name>
+			<name>op</name>
 			<production-rule>
 				<element>*</element>
-				<element>x</element>
-				<element>monomio</element>
+			</production-rule>
+		</symbol>	
+
+		<symbol>
+			<name>op</name>
+			<production-rule>
+				<element>/</element>
+			</production-rule>
+		</symbol>
+		
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>sin</element>
+			</production-rule>
+		</symbol>
+		
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>cos</element>
+			</production-rule>
+		</symbol>						
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>log</element>
 			</production-rule>
 		</symbol>
 
 		<symbol>
-			<name>monomio</name>
+			<name>pre-op</name>
 			<production-rule>
-				<element>/</element>
-				<element>monomio</element>
+				<element>exp</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>var</name>
+			<production-rule>
 				<element>x</element>
 			</production-rule>
 		</symbol>
+		
+		<symbol>
+			<name>var</name>
+			<production-rule>
+				<element>x2</element>
+			</production-rule>
+		</symbol>		
 		
 	</non-terminal-symbols>
 </grammar>

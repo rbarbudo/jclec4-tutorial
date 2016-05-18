@@ -1,0 +1,248 @@
+<grammar>
+	<root-symbol>expr</root-symbol>
+	<terminal-symbols>
+	
+		<symbol>
+			<name>+</name>
+		</symbol>	
+			
+		<symbol>		
+			<name>-</name>
+		</symbol>
+		
+		<symbol>
+			<name>*</name>
+		</symbol>
+
+		<symbol>
+			<name>/</name>
+		</symbol>
+			
+		<symbol>
+			<name>sin</name>
+		</symbol>
+				
+		<symbol>
+			<name>cos</name>
+		</symbol>
+
+		<symbol>
+			<name>tan</name>
+		</symbol>
+
+		<symbol>
+			<name>tanh</name>
+		</symbol>
+				
+		<symbol>
+			<name>x</name>
+		</symbol>
+
+		<symbol>
+			<name>x2</name>
+		</symbol>
+
+		<symbol>
+			<name>x3</name>
+		</symbol>
+
+		<symbol>
+			<name>x4</name>
+		</symbol>
+		
+		<symbol>
+			<name>exp</name>
+		</symbol>
+		
+		<symbol>
+			<name>log</name>
+		</symbol>
+
+		<symbol>
+			<name>sqrt</name>
+		</symbol>
+
+		<symbol>
+			<name>cte</name>
+		</symbol>
+
+		<symbol>
+			<name>square</name>
+		</symbol>
+
+		<symbol>
+			<name>cube</name>
+		</symbol>
+
+	</terminal-symbols>
+	<non-terminal-symbols>
+	
+		<symbol>
+			<name>expr</name>
+			<production-rule>
+				<element>op</element>
+				<element>expr</element>
+				<element>expr</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>expr</name>
+			<production-rule>
+				<element>pre-op</element>
+				<element>expr</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>expr</name>
+			<production-rule>
+				<element>op</element>
+				<element>var</element>
+				<element>var</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>expr</name>
+			<production-rule>
+				<element>pre-op</element>
+				<element>var</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>expr</name>
+			<production-rule>
+				<element>var</element>
+			</production-rule>
+		</symbol>			
+		
+		<symbol>
+			<name>op</name>
+			<production-rule>
+				<element>+</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>op</name>
+			<production-rule>
+				<element>-</element>
+			</production-rule>
+		</symbol>
+		
+		<symbol>
+			<name>op</name>
+			<production-rule>
+				<element>*</element>
+			</production-rule>
+		</symbol>	
+
+		<symbol>
+			<name>op</name>
+			<production-rule>
+				<element>/</element>
+			</production-rule>
+		</symbol>
+		
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>sin</element>
+			</production-rule>
+		</symbol>
+		
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>cos</element>
+			</production-rule>
+		</symbol>						
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>tan</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>tanh</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>log</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>exp</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>square</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>cube</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>sqrt</element>
+			</production-rule>
+		</symbol>
+		
+		<symbol>
+			<name>var</name>
+			<production-rule>
+				<element>x</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>var</name>
+			<production-rule>
+				<element>x2</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>var</name>
+			<production-rule>
+				<element>x3</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>var</name>
+			<production-rule>
+				<element>x4</element>
+			</production-rule>
+		</symbol>
+		
+		<symbol>
+			<name>var</name>
+			<production-rule>
+				<element>cte</element>
+			</production-rule>
+		</symbol>		
+		
+	</non-terminal-symbols>
+</grammar>

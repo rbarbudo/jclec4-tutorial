@@ -13,6 +13,10 @@
 		<symbol>
 			<name>*</name>
 		</symbol>
+
+		<symbol>
+			<name>/</name>
+		</symbol>
 			
 		<symbol>
 			<name>sin</name>
@@ -21,13 +25,17 @@
 		<symbol>
 			<name>cos</name>
 		</symbol>
-				
+
 		<symbol>
-			<name>x</name>
+			<name>tan</name>
 		</symbol>
 
 		<symbol>
-			<name>y</name>
+			<name>tanh</name>
+		</symbol>
+				
+		<symbol>
+			<name>x</name>
 		</symbol>
 		
 		<symbol>
@@ -39,7 +47,19 @@
 		</symbol>
 
 		<symbol>
+			<name>sqrt</name>
+		</symbol>
+
+		<symbol>
 			<name>cte</name>
+		</symbol>
+
+		<symbol>
+			<name>square</name>
+		</symbol>
+
+		<symbol>
+			<name>cube</name>
 		</symbol>
 
 	</terminal-symbols>
@@ -78,7 +98,7 @@
 				<element>var</element>
 			</production-rule>
 		</symbol>
-		
+
 		<symbol>
 			<name>expr</name>
 			<production-rule>
@@ -106,6 +126,13 @@
 				<element>*</element>
 			</production-rule>
 		</symbol>	
+
+		<symbol>
+			<name>op</name>
+			<production-rule>
+				<element>/</element>
+			</production-rule>
+		</symbol>
 		
 		<symbol>
 			<name>pre-op</name>
@@ -122,16 +149,58 @@
 		</symbol>						
 
 		<symbol>
-			<name>var</name>
+			<name>pre-op</name>
 			<production-rule>
-				<element>x</element>
+				<element>tan</element>
 			</production-rule>
 		</symbol>
 
 		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>tanh</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>log</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>exp</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>square</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>cube</element>
+			</production-rule>
+		</symbol>
+
+		<symbol>
+			<name>pre-op</name>
+			<production-rule>
+				<element>sqrt</element>
+			</production-rule>
+		</symbol>
+		
+		<symbol>
 			<name>var</name>
 			<production-rule>
-				<element>y</element>
+				<element>x</element>
 			</production-rule>
 		</symbol>
 		

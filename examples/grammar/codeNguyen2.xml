@@ -16,6 +16,11 @@
 	</terminal>
 	
 	<terminal>
+		<name>/</name>
+		<code>net.sf.jclec.symreg.Div</code>
+	</terminal>
+	
+	<terminal>
 		<name>sin</name>
 		<code>net.sf.jclec.symreg.Sin</code>
 	</terminal>
@@ -31,8 +36,8 @@
 	</terminal>
 
 	<terminal>
-		<name>y</name>
-		<code>net.sf.jclec.symreg.Y</code>
+		<name>x2</name>
+		<code>net.sf.jclec.symreg.X2</code>
 	</terminal>
 	
 	<terminal>
@@ -43,13 +48,6 @@
 	<terminal>
 		<name>log</name>
 		<code>net.sf.jclec.symreg.Log</code>
-	</terminal>
-
-	<terminal>
-		<name>cte</name>
-		<code>net.sf.jclec.symreg.Cte</code>
-		<constant-schema type="net.sf.jclec.util.range.Interval" left="-10" right="10" closure="open-open" />
-		<rand-gen-factory type="net.sf.jclec.util.random.RanecuFactory" seed="12351"/>
 	</terminal>
 
 </code>

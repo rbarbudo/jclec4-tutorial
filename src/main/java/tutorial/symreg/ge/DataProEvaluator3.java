@@ -21,7 +21,7 @@ import es.uco.kdis.datapro.dataset.source.ExcelDataset;
 import es.uco.kdis.datapro.exception.IllegalFormatSpecificationException;
 import es.uco.kdis.datapro.exception.NotAddedValueException;
 
-public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
+public class DataProEvaluator3 extends AbstractEvaluator implements IConfigure
 {
 	//////////////////////////////////////////////////////////////////////
 	// -------------------------------------------- Serialization constant
@@ -41,9 +41,11 @@ public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 	
 	private static Comparator<IFitness> COMPARATOR;
 	
-	private static ArrayList <Double> xvalues = new ArrayList<Double>();
+	private static ArrayList <Double> x1values = new ArrayList<Double>();
 	
-	private static ArrayList <Double> yvalues = new ArrayList<Double>();
+	private static ArrayList <Double> x2values = new ArrayList<Double>();
+
+	private static ArrayList <Double> x3values = new ArrayList<Double>();
 	
 	private static ArrayList <Double> results = new ArrayList<Double>();
 			
@@ -59,7 +61,7 @@ public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 	// ------------------------------------------------------ Constructors
 	//////////////////////////////////////////////////////////////////////
 	
-	public BiDataProEvaluator()
+	public DataProEvaluator3()
 	{
 		super();
 	}
@@ -102,14 +104,15 @@ public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 		ExcelDataset dataset = new ExcelDataset(dataFile);
 		dataset.setName("'My ExcelDataset'");
 		try {
-			dataset.readDataset("n%v", "%ff%f");
+			dataset.readDataset("n%v", "%fff%f");
 
 			//Show the dataset
 			InstanceIterator it = new InstanceIterator(dataset);
 			do {
-				xvalues.add((double) it.currentInstance().get(0));
-				yvalues.add((double) it.currentInstance().get(1));
-				results.add((double) it.currentInstance().get(2));
+				x1values.add((double) it.currentInstance().get(0));
+				x2values.add((double) it.currentInstance().get(1));
+				x3values.add((double) it.currentInstance().get(2));
+				results.add((double) it.currentInstance().get(3));
 				it.next();
 			} while (!it.isDone());			
 			
@@ -143,19 +146,22 @@ public class BiDataProEvaluator extends AbstractEvaluator implements IConfigure
 			// Pass all
 			double rms = 0.0;
 			
-			for (int i=0; i<xvalues.size(); i++) {
-				y = function.<Double>execute(xvalues.get(i),yvalues.get(i));
+			for (int i=0; i<x1values.size(); i++) {
+				y = function.<Double>execute(x1values.get(i),x2values.get(i),x3values.get(i));
 				double diff = y - results.get(i);
 				rms += diff * diff;
 			}
 			rms = Math.sqrt(rms);
 			
 			// Set rms as fitness for ind
-			ind.setFitness(new SimpleValueFitness(rms));
+			if(Double.isNaN(rms) || rms > Double.MAX_VALUE)
+				ind.setFitness(new SimpleValueFitness(Double.MAX_VALUE));
+			else
+				ind.setFitness(new SimpleValueFitness(rms));
 		}
 		// If the individual is not valid, we assign a bad fitness
 		else
-			ind.setFitness(new SimpleValueFitness(9999));
+			ind.setFitness(new SimpleValueFitness(Double.MAX_VALUE));
 	}
 	
 	@Override

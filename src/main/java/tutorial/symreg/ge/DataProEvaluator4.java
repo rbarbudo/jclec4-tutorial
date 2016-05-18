@@ -21,7 +21,7 @@ import es.uco.kdis.datapro.dataset.source.ExcelDataset;
 import es.uco.kdis.datapro.exception.IllegalFormatSpecificationException;
 import es.uco.kdis.datapro.exception.NotAddedValueException;
 
-public class DataProEvaluator extends AbstractEvaluator implements IConfigure
+public class DataProEvaluator4 extends AbstractEvaluator implements IConfigure
 {
 	//////////////////////////////////////////////////////////////////////
 	// -------------------------------------------- Serialization constant
@@ -41,7 +41,13 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	
 	private static Comparator<IFitness> COMPARATOR;
 	
-	private static ArrayList <Double> xvalues = new ArrayList<Double>();
+	private static ArrayList <Double> x1values = new ArrayList<Double>();
+	
+	private static ArrayList <Double> x2values = new ArrayList<Double>();
+
+	private static ArrayList <Double> x3values = new ArrayList<Double>();
+	
+	private static ArrayList <Double> x4values = new ArrayList<Double>();
 	
 	private static ArrayList <Double> results = new ArrayList<Double>();
 			
@@ -57,7 +63,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	// ------------------------------------------------------ Constructors
 	//////////////////////////////////////////////////////////////////////
 	
-	public DataProEvaluator()
+	public DataProEvaluator4()
 	{
 		super();
 	}
@@ -96,16 +102,20 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 	public void configure(Configuration settings) 
 	{
 		String dataFile = settings.getString("data-file");
+		System.out.println(dataFile);
 		ExcelDataset dataset = new ExcelDataset(dataFile);
 		dataset.setName("'My ExcelDataset'");
 		try {
-			dataset.readDataset("n%v", "%f%f");
+			dataset.readDataset("n%v", "%ffff%f");
 
 			//Show the dataset
 			InstanceIterator it = new InstanceIterator(dataset);
 			do {
-				xvalues.add((double) it.currentInstance().get(0));
-				results.add((double) it.currentInstance().get(1));
+				x1values.add((double) it.currentInstance().get(0));
+				x2values.add((double) it.currentInstance().get(1));
+				x3values.add((double) it.currentInstance().get(2));
+				x4values.add((double) it.currentInstance().get(3));
+				results.add((double) it.currentInstance().get(4));
 				it.next();
 			} while (!it.isDone());			
 			
@@ -128,7 +138,7 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 		// Firstly, we must check if the individual is valid
 		if(((GEIndividual)ind).isFeasible())
 		{
-			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());	
+			ExprTree ind_expr = (((GEIndividual)ind).getPhenotype().getExprTree());
 			//System.out.println(ind_expr);
 			ExprTreeFunction function = new ExprTreeFunction(ind_expr);
 			
@@ -139,24 +149,22 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 			// Pass all
 			double rms = 0.0;
 			
-			for (int i=0; i<xvalues.size(); i++) {
-				y = function.<Double>execute(xvalues.get(i));			
+			for (int i=0; i<x1values.size(); i++) {
+				y = function.<Double>execute(x1values.get(i),x2values.get(i),x3values.get(i),x4values.get(i));
 				double diff = y - results.get(i);
 				rms += diff * diff;
 			}
 			rms = Math.sqrt(rms);
-
-			// Set rms as fitness for ind		
+			
+			// Set rms as fitness for ind
 			if(Double.isNaN(rms) || rms > Double.MAX_VALUE)
 				ind.setFitness(new SimpleValueFitness(Double.MAX_VALUE));
 			else
 				ind.setFitness(new SimpleValueFitness(rms));
-			
 		}
 		// If the individual is not valid, we assign a bad fitness
 		else
 			ind.setFitness(new SimpleValueFitness(Double.MAX_VALUE));
-
 	}
 	
 	@Override
@@ -169,4 +177,5 @@ public class DataProEvaluator extends AbstractEvaluator implements IConfigure
 		// Return comparator
 		return COMPARATOR;
 	}
+	
 }
